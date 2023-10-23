@@ -27,6 +27,7 @@
         <flow.version>0.0.2-SNAPSHOT</flow.version>
         <flow-base.version>0.0.2-SNAPSHOT</flow-base.version>
         <source-base.version>0.0.2-SNAPSHOT</source-base.version>
+        <source-tool.version>0.0.2-SNAPSHOT</source-tool.version>
     </properties>
 
     <dependencyManagement>
@@ -48,6 +49,12 @@
                 <groupId>com.cbim</groupId>
                 <artifactId>source-base</artifactId>
                 <version>${source-base.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-tool</artifactId>
+                <version>${source-tool.version}</version>
             </dependency>
 
         </dependencies>

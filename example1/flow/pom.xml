@@ -33,6 +33,10 @@
             <groupId>com.cbim</groupId>
             <artifactId>flow-base</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.cbim</groupId>
+            <artifactId>source-tool</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

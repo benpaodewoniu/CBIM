@@ -1,12 +1,15 @@
 package com.cbim.flowbase.global;
 
-import com.cbim.flowbase.entity.ActuatorFlowList;
+import com.cbim.flowbase.actuator.AbstractActuator;
+import com.cbim.flowbase.entity.ActuatorFlow;
 import lombok.Data;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class FlowGlobal {
-    private static List<ActuatorFlowList> flowListConfig = new ArrayList<>();
+    public static Map<String, ActuatorFlow> flowMapConfig = new HashMap<>();
+    public static Map<String, List<AbstractActuator>> flowMapAbstractActuator = new HashMap<>();
 }
