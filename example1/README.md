@@ -1,33 +1,33 @@
-# 初始化
+# 目标
 
-本项目使用
+- 完成责任链的编写
 
-- `Java 17`
-- `maven 3.9.4`
+# 包介绍
 
-在 `example0` 中，主要完成下面的目标
+|包名| 作用                                             |
+|---|------------------------------------------------|
+|cbim| 主程序<br/> - spring boot 编写                      |
+|flow| 责任链模块<br/> - 各种工厂方法<br/> - 各种模块类<br/> - 初始化责任链 |
+|flow-base| 责任链基础包<br/> - 责任链方法<br/> - 责任链类对象              |
+|source-base| 基础包<br/> - 用于存储各种公有变量                          |
+|source-tool| 工具包<br/> - 本次主要实现从 IOC 中拿 bean 对象              |
 
-- `example0` 作为 `maven` 项目
-  - 维护 `pom.xml` ，用于项目下的版本控制
-    - [maven | parent](https://benpaodewoniu.github.io/2023/10/11/maven11/)
-- `example0/cbim` 为 `spring boot` 项目
-  - 为整个项目的入口程序
-    - [spring boot | 在 IDEA 中创建 spring boot 项目](https://benpaodewoniu.github.io/2021/07/18/spring1/)
-- `example/flow` 为 `maven` 项目
+# 执行逻辑
 
-# 环境安装
+- `cbim` 中 `Spring boot` 开始执行
+- 调用 `flow` 中的 `chain` 方法
+- `chain` 方法读取责任链配置，并获取链上各个 `bean` 执行
 
-这里不再详细说明环境和项目怎么导入和安装，如果不懂请参考
+# 需要学习的点
 
-- [maven | IDEA 配置 maven 项目环境](https://benpaodewoniu.github.io/2021/06/29/maven1/)
+- `cbim` 的 `Spring boot` 的 `ComponentScan` 的注册其他模块包
+- 其他模块包使用 Spring 的注解
+- 责任链的 Yaml 解析
+- 责任链抽象类的执行
 
-# 测试
-
-启动 cbim 中的 spring boot 程序，出现下述字样，即成功
+# 成功输出
 
 ```
-success
-
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -36,7 +36,14 @@ success
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::      (v2.7.17-SNAPSHOT)
 
-2023-10-17 21:42:49.231  INFO 10288 --- [           main] com.cbim.cbim.CbimApplication            : Starting CbimApplication using Java 17.0.8 on S3 with PID 10288 (D:\JAVA\Code\CBIM\example0\cbim\target\classes started by Administrator in D:\JAVA\Code\CBIM)
-2023-10-17 21:42:49.236  INFO 10288 --- [           main] com.cbim.cbim.CbimApplication            : No active profile set, falling back to 1 default profile: "default"
-2023-10-17 21:42:50.011  INFO 10288 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-23 23:56:22.282  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : Starting CbimApplication using Java 17.0.8 on S3 with PID 3716 (D:\JAVA\Code\CBIM\example1\cbim\target\classes started by Administrator in D:\JAVA\Code\CBIM)
+2023-10-23 23:56:22.285  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-10-23 23:56:23.203  INFO 3716 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-23 23:56:23.212  INFO 3716 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-23 23:56:23.213  INFO 3716 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-10-23 23:56:23.297  INFO 3716 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-23 23:56:23.297  INFO 3716 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
+2023-10-23 23:56:23.642  INFO 3716 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-23 23:56:23.651  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : Started CbimApplication in 1.836 seconds (JVM running for 2.418)
+success
 ```
