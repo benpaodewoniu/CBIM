@@ -1,6 +1,6 @@
 # 目标
 
-- 完成责任链的编写
+- 完成 netty 采集模块的编写
 
 # 包介绍
 
@@ -11,39 +11,15 @@
 |flow-base| 责任链基础包<br/> - 责任链方法<br/> - 责任链类对象              |
 |source-base| 基础包<br/> - 用于存储各种公有变量                          |
 |source-tool| 工具包<br/> - 本次主要实现从 IOC 中拿 bean 对象              |
-
-# 执行逻辑
-
-- `cbim` 中 `Spring boot` 开始执行
-- 调用 `flow` 中的 `chain` 方法
-- `chain` 方法读取责任链配置，并获取链上各个 `bean` 执行
+|souce-netty|使用 netty 做的采集包|
 
 # 需要学习的点
 
-- `cbim` 的 `Spring boot` 的 `ComponentScan` 的注册其他模块包
-- 其他模块包使用 Spring 的注解
-- 责任链的 Yaml 解析
-- 责任链抽象类的执行
+## config 的配置路径
 
-# 成功输出
+需要注意的是，我将之前 cbim 中的 config 文件夹提到了最外面。
 
-```
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::      (v2.7.17-SNAPSHOT)
+这是因为，对于 IDEA 来说，工作路径在 example* 的父路径。所以，spring boot 自动加载的是工作路径的配置。
 
-2023-10-23 23:56:22.282  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : Starting CbimApplication using Java 17.0.8 on S3 with PID 3716 (D:\JAVA\Code\CBIM\example1\cbim\target\classes started by Administrator in D:\JAVA\Code\CBIM)
-2023-10-23 23:56:22.285  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : No active profile set, falling back to 1 default profile: "default"
-2023-10-23 23:56:23.203  INFO 3716 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-23 23:56:23.212  INFO 3716 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-23 23:56:23.213  INFO 3716 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
-2023-10-23 23:56:23.297  INFO 3716 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-23 23:56:23.297  INFO 3716 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
-2023-10-23 23:56:23.642  INFO 3716 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-23 23:56:23.651  INFO 3716 --- [           main] com.cbim.cbim.CbimApplication            : Started CbimApplication in 1.836 seconds (JVM running for 2.418)
-success
-```
+虽然可以通过 [@PropertySource](https://benpaodewoniu.github.io/2021/07/21/spring6/) 来解决，但是感觉有点麻烦，所以干脆提到了外面。
+

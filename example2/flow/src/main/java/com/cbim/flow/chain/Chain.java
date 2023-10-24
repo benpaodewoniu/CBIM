@@ -33,7 +33,7 @@ public class Chain {
          * 读取责任链的配置
          * */
 
-        readFlow("example2/cbim/config/common/flowConfig.yml");
+        readFlow("config/common/flowConfig.yml");
 
         /**
          *
