@@ -21,18 +21,30 @@
         <module>flow-base</module>
         <module>source-base</module>
         <module>source-tool</module>
+        <module>source-netty</module>
     </modules>
 
     <properties>
+
+        <netty-all.version>4.1.68.Final</netty-all.version>
+
         <flow.version>0.0.3-SNAPSHOT</flow.version>
         <flow-base.version>0.0.3-SNAPSHOT</flow-base.version>
         <source-base.version>0.0.3-SNAPSHOT</source-base.version>
         <source-tool.version>0.0.3-SNAPSHOT</source-tool.version>
+        <source-netty.version>0.0.3-SNAPSHOT</source-netty.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version> <!-- 使用最新版本 -->
+            </dependency>
+
             <dependency>
                 <groupId>com.cbim</groupId>
                 <artifactId>flow</artifactId>
@@ -55,6 +67,12 @@
                 <groupId>com.cbim</groupId>
                 <artifactId>source-tool</artifactId>
                 <version>${source-tool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-netty</artifactId>
+                <version>${source-netty.version}</version>
             </dependency>
 
         </dependencies>

@@ -4,6 +4,7 @@ flow:
       - {beanName: beforeStart,subName: null,tipZh: 前置处理模块}
   - type: init
     chains:
+      - {beanName: clientFactory,subName: null,tipZh: 采集 netty 客户端}
       - {beanName: configInit,subName: null,tipZh: 配置初始化模块}
       - {beanName: dataInit,subName: null,tipZh: 数据初始化模块}
       - {beanName: eventInit,subName: null,tipZh: 事件驱动模块初始化}

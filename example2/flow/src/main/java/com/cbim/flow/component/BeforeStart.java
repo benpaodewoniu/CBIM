@@ -9,7 +9,6 @@ public class BeforeStart extends AbstractActuator {
 
     @Override
     public void invoke(ActuatorEntity actuatorEntity) throws Exception {
-        System.out.println("success");
     }
 
     ;
