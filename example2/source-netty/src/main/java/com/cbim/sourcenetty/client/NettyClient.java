@@ -2,6 +2,8 @@ package com.cbim.sourcenetty.client;
 
 import com.cbim.sourcebase.entity.NettyAddress;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -15,23 +17,19 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class NettyClient extends Thread {
+public class NettyClient {
 
     Bootstrap bootstrap = new Bootstrap();
+    EventLoopGroup group = new NioEventLoopGroup(4);
 
     @Autowired
     private NettyAddress nettyAddress;
 
-    @Override
-    public void run() {
-        start();
-        connect();
-    }
-
     ;
 
     public void start() {
-        EventLoopGroup group = new NioEventLoopGroup();
+
+        NettyClient netty = this;
 
         try {
             bootstrap
@@ -40,21 +38,37 @@ public class NettyClient extends Thread {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) {
+                            // 设置数据处理时间上的限定，比如，下面是 30s 如果 netty 没有取到数据的话，就会触发 ClientConnect 的 userEventTriggered 方法
                             ch.pipeline().addLast(new IdleStateHandler(30, 0, 0, TimeUnit.SECONDS));
-                            ch.pipeline().addLast(new ClientConnect());
-                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(100, 0, 0, 0, 0, true));
+                            // ClientConnect 主要用于处理连接、断开、异常等
+                            ch.pipeline().addLast(new ClientConnect(netty));
+                            // 编码器，详情请参考 README.md
+                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(100, 1, 2, 1, 3, true));
+                            // 存储数据，处理异常
                             ch.pipeline().addLast(new ClientHandler());
                         }
                     });
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            group.shutdownGracefully();
         }
     }
 
     public void connect() {
-//        bootstrap.connect(nettyAddress.getHost(), nettyAddress.getPort());
-        bootstrap.connect("127.0.0.1", 5566);
+        System.out.println(Thread.currentThread());
+        bootstrap.connect(nettyAddress.getHost(), nettyAddress.getPort()).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                if (future.isSuccess()) {
+                    System.out.println(Thread.currentThread());
+                    System.out.println("连接成功");
+                } else {
+                    System.out.println(Thread.currentThread());
+                    System.err.println("连接失败");
+                    future.cause().printStackTrace();
+                }
+            }
+
+            ;
+        });
     }
 }
