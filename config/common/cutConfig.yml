@@ -1,0 +1,5 @@
+configs:
+  - {key: 1,offset: 5,size: 5,tipZh: 姓名}
+  - {key: 2,offset: 5,size: 1,tipZh: 性别}
+  - {key: 3,offset: 5,size: 2,tipZh: 年龄}
+  - {key: 4,offset: 5,size: 10,tipZh: 成绩}
