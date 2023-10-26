@@ -17,5 +17,7 @@ public class InitComponent {
         for (AbstractActuator abstractActuator : abstractActuatorList) {
             abstractActuator.invoke(new ActuatorEntity());
         }
+
+        new SubComponent().run();
     }
 }

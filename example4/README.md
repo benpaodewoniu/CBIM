@@ -13,19 +13,14 @@
 |source-tool| 工具包<br/> - 本次主要实现从 IOC 中拿 bean 对象              |
 |souce-netty|使用 netty 做的采集包|
 
-## 修复
+# 数据流的走向
 
-修复 example2 遗留的 BUG，让 netty 可以断开重连。
+这一章节将整体框架搭建完成，确立了数据的流向问题。
 
-## 介绍
-
-系统日志采用 `SLF4J + logback` 的方式构建，因为两者都是 `spring boot` 默认的日志体系，所以，不需要重新引入包。
-
-在最外层的 `application.yml` 中告知日志配置文件的路径
-
-```
-logging:
-  config: classpath:logback-spring.xml
-```
-
-该文件规定了日志怎么输出、以什么样式输出。
+- 程序启动
+- 运行责任链中的 `before`
+  - 完成最开始的处理工作
+- 运行责任链的 `Init`
+  - 这部分表示只初始化一次，比如 `netty`、数据、事件注册等
+- `while` 循环运行责任链的 `sub`
+  - 将从 `netty` 接收到的数据，注入到 `sub` 的各个模块，进行处理

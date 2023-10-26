@@ -24,7 +24,7 @@ public class CbimApplication {
         chain.run();
 
         /*
-         * 执行责任链的 Init 模块
+         * 执行责任链的 Init 模块，并开启 sub 模块
          * */
 
         InitComponent initComponent = new InitComponent();
