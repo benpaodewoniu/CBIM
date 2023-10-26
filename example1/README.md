@@ -22,7 +22,7 @@
 
 - `cbim` 的 `Spring boot` 的 `ComponentScan` 的注册其他模块包
 - 其他模块包使用 Spring 的注解
-- 责任链的 Yaml 解析
+- 责任链的 `Yaml` 解析
 - 责任链抽象类的执行
 
 # 成功输出

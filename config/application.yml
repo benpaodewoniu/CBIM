@@ -2,3 +2,6 @@ tcp:
   client:
     host: 127.0.0.1
     port: 5566
+
+logging:
+  config: classpath:logback-spring.xml

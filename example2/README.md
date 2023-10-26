@@ -112,3 +112,7 @@ Thread[nioEventLoopGroup-2-2,10,main]
 所以，`AA` 还留存在 `netty` 的消息队列中，后续继续进消息，由于 `AA` 的存在导致，数据解析一直失败，然后积压的数据超过 `LengthFieldBasedFrameDecoder` 设置的上限，然后报错。
 
 该报错被 `ClientHandler` 异常处理中的 `TooLongFrameException` 捕获，并断开连接。ps: 我觉得直接断开连接不够优雅，但是，目前没找到其他办法。
+
+## 遗留的问题
+
+这一章节中，只有 `5566` 端口服务器已经开了，客户端才能连接，否则会报错。这个将在下一个案例中修改。

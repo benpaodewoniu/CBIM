@@ -11,6 +11,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class NettyClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(ClientHandler.class);
 
     Bootstrap bootstrap = new Bootstrap();
     EventLoopGroup group = new NioEventLoopGroup(4);
@@ -59,12 +63,19 @@ public class NettyClient {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    System.out.println(Thread.currentThread());
-                    System.out.println("连接成功");
+                    logger.info("连接成功");
                 } else {
-                    System.out.println(Thread.currentThread());
-                    System.err.println("连接失败");
-                    future.cause().printStackTrace();
+                    logger.error("连接失败");
+
+                    // 重新连接
+
+                    future.channel().eventLoop().schedule(new Runnable() {
+                        @Override
+                        public void run() {
+                            logger.info("重新连接");
+                            connect();
+                        }
+                    }, 5, TimeUnit.SECONDS);
                 }
             }
 
