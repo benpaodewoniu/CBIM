@@ -22,6 +22,7 @@
         <module>source-base</module>
         <module>source-tool</module>
         <module>source-netty</module>
+        <module>source-analyse</module>
     </modules>
 
     <properties>
@@ -33,11 +34,18 @@
         <source-base.version>0.0.6-SNAPSHOT</source-base.version>
         <source-tool.version>0.0.6-SNAPSHOT</source-tool.version>
         <source-netty.version>0.0.6-SNAPSHOT</source-netty.version>
+        <source-analyse.version>0.0.6-SNAPSHOT</source-analyse.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-analyse</artifactId>
+                <version>${source-analyse.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>io.netty</groupId>

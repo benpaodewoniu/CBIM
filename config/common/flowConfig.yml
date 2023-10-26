@@ -12,4 +12,6 @@ flow:
   - type: sub
     chains:
       - {beanName: cutFactory,subName: null,tipZh: 切包模块}
+      - {beanName: analyseFactory,subName: null,tipZh: 解析模块}
+      - {beanName: combineFactory,subName: null,tipZh: 组包模块}
       - {beanName: callEventFactory,subName: null,tipZh: 回调事件模块}
