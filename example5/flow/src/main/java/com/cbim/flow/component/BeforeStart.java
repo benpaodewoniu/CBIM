@@ -3,6 +3,7 @@ package com.cbim.flow.component;
 import com.cbim.flowbase.actuator.AbstractActuator;
 import com.cbim.flowbase.entity.ActuatorEntity;
 import com.cbim.flowbase.entity.ActuatorFlowList;
+import com.cbim.sourcebase.entity.analyse.AnalyseInfo;
 import com.cbim.sourcebase.entity.cut.CutConfigList;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
@@ -13,8 +14,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static com.cbim.flowbase.global.FlowGlobal.cutMapConfig;
-import static com.cbim.flowbase.global.FlowGlobal.flowMapConfig;
+import static com.cbim.flowbase.global.FlowGlobal.*;
 
 @Component("beforeStart")
 public class BeforeStart extends AbstractActuator {
@@ -49,19 +49,19 @@ public class BeforeStart extends AbstractActuator {
     }
 
     public void readAnalyse(String path) throws IOException {
-        Yaml yaml = new Yaml(new Constructor(ActuatorFlowList.class));
+        Yaml yaml = new Yaml(new Constructor(AnalyseInfo.class));
         String configPath = new File("").getCanonicalPath() + File.separator + path;
         InputStream inputStream = new FileInputStream(configPath);
-        ActuatorFlowList actuatorFlowList = yaml.load(inputStream);
-        actuatorFlowList.getFlow().stream().forEach(s -> flowMapConfig.put(s.getType(), s));
+        AnalyseInfo analyseInfo = yaml.load(inputStream);
+        analyseInfo.getConfigs().stream().forEach(s -> analyseConfigListHashMap.put(s.getType(), s));
     }
 
     public void readCombine(String path) throws IOException {
         Yaml yaml = new Yaml(new Constructor(ActuatorFlowList.class));
-        String configPath = new File("").getCanonicalPath() + File.separator + path;
-        InputStream inputStream = new FileInputStream(configPath);
-        ActuatorFlowList actuatorFlowList = yaml.load(inputStream);
-        actuatorFlowList.getFlow().stream().forEach(s -> flowMapConfig.put(s.getType(), s));
+//        String configPath = new File("").getCanonicalPath() + File.separator + path;
+//        InputStream inputStream = new FileInputStream(configPath);
+//        ActuatorFlowList actuatorFlowList = yaml.load(inputStream);
+//        actuatorFlowList.getFlow().stream().forEach(s -> flowMapConfig.put(s.getType(), s));
     }
 
 }

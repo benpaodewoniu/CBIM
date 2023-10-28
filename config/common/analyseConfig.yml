@@ -1,0 +1,8 @@
+configs:
+  - type: 1
+    content:
+      - { order: 0,fieldName: name,placeholder: 1,hexString: 3,endian: little,tipZh: 姓名 }
+  - type: 2
+    content:
+      - { order: 0,loopFieldName: scoreList,loopValue: 5,loopOrders: [ 1 ] }
+      - { order: 1,fieldName: score,placeholder: 3,hexString: 1,endian: little,tipZh: 科目成绩 }
