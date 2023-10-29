@@ -1,5 +1,6 @@
 package com.cbim.sourcenetty.client;
 
+import com.cbim.sourcetool.util.Util;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -39,7 +40,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         in.readBytes(bytes);
 
         // 将字节数组转换为十六进制字符串
-        String hexString = bytesToHexString(bytes);
+        String hexString = Util.bytesToHexString(bytes);
 
         // 打印十六进制字符串
         logger.info("接收数据为: " + hexString);
@@ -50,16 +51,6 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         dataQueue.offer(bytes);
 
 
-    }
-
-    // 辅助方法：将字节数组转换为十六进制字符串
-    private String bytesToHexString(byte[] bytes) {
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : bytes) {
-            // 使用两个字符的十六进制表示，并用空格分隔
-            hexString.append(String.format("%02X ", b));
-        }
-        return hexString.toString().trim();
     }
 
 }

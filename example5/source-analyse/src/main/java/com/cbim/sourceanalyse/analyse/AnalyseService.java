@@ -141,16 +141,38 @@ public class AnalyseService {
     private String getValue(AnalyseConfig analyseConfig, byte[] content) {
         String result = "";
         String endian = analyseConfig.getEndian();
+        int hexString = analyseConfig.getHexString();
 //        if (endian.equals("little")) {
 //
 //        } else {
 //
 //        }
-        result = bytesToString(content);
+        result = bytesToString(hexString, content);
         return result;
     }
 
-    private String bytesToString(byte[] content) {
-        return new String(content, StandardCharsets.UTF_8);
+    private String bytesToString(int hexString, byte[] content) {
+
+        switch (hexString) {
+            case 1:
+                StringBuilder stringBuilder = new StringBuilder();
+                for (byte b : content) {
+                    // 转化为 16 进制字符
+                    String hex = String.format("%02X", b);
+                    // 16 进制字符串转为为 10 进制数字
+                    int decimal = Integer.parseInt(hex, 16);
+
+                    stringBuilder.append((decimal));
+                }
+
+                // 删除前面的 0
+                return stringBuilder.toString().replaceFirst("^0+(?!$)", "");
+            case 2:
+                return Util.bytesToHexString(content);
+            case 3:
+                return new String(content, StandardCharsets.UTF_8).trim();
+            default:
+                return null;
+        }
     }
 }
