@@ -3,6 +3,7 @@ package com.cbim.flowbase.global;
 import com.cbim.flowbase.actuator.AbstractActuator;
 import com.cbim.flowbase.entity.ActuatorFlow;
 import com.cbim.sourcebase.entity.analyse.AnalyseConfigList;
+import com.cbim.sourcebase.entity.combine.CombineConfigList;
 import com.cbim.sourcebase.entity.cut.CutConfig;
 import lombok.Data;
 
@@ -29,4 +30,11 @@ public class FlowGlobal {
      **/
     public static Map<String, AnalyseConfigList> analyseConfigListHashMap = new HashMap<>();
     public static Map<String, String> analyseDataHashMap = new HashMap<>();
+
+    /*
+     *组合数据
+     **/
+    public static Map<String, CombineConfigList> combineConfigListHashMap = new HashMap<>();
+    public static Map<String, String> combineDataHashMap = new HashMap<>();
+
 }

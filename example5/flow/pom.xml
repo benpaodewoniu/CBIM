@@ -41,6 +41,12 @@
             <groupId>com.cbim</groupId>
             <artifactId>source-tool</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.cbim</groupId>
+            <artifactId>source-analyse</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

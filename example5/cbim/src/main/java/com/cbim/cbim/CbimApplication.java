@@ -5,13 +5,11 @@ import com.cbim.flow.chain.Chain;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
-import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class, basePackages = {"com.cbim.cbim", "com.cbim.flow", "com.cbim.sourcetool", "com.cbim.sourcebase"
-        , "com.cbim.sourcenetty"})
+        , "com.cbim.sourcenetty", "com.cbim.sourceanalyse"})
 public class CbimApplication {
 
     public static void main(String[] args) throws Exception {

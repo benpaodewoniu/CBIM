@@ -2,8 +2,8 @@ package com.cbim.flow.component;
 
 import com.cbim.flowbase.actuator.AbstractActuator;
 import com.cbim.flowbase.entity.ActuatorEntity;
-import com.cbim.flowbase.entity.ActuatorFlowList;
 import com.cbim.sourcebase.entity.analyse.AnalyseInfo;
+import com.cbim.sourcebase.entity.combine.CombineInfo;
 import com.cbim.sourcebase.entity.cut.CutConfigList;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
@@ -22,8 +22,8 @@ public class BeforeStart extends AbstractActuator {
     @Override
     public void invoke(ActuatorEntity actuatorEntity) throws Exception {
         /*
-        * 读入 cutConfig.yaml 配置
-        * */
+         * 读入 cutConfig.yaml 配置
+         * */
         readCut("config/common/cutConfig.yml");
 
         /*
@@ -44,7 +44,8 @@ public class BeforeStart extends AbstractActuator {
         String configPath = new File("").getCanonicalPath() + File.separator + path;
         InputStream inputStream = new FileInputStream(configPath);
         CutConfigList cutConfigList = yaml.load(inputStream);
-        cutConfigList.getConfigs().stream().forEach(s -> cutMapConfig.put(s.getKey(), s));;
+        cutConfigList.getConfigs().stream().forEach(s -> cutMapConfig.put(s.getKey(), s));
+        ;
 
     }
 
@@ -57,11 +58,11 @@ public class BeforeStart extends AbstractActuator {
     }
 
     public void readCombine(String path) throws IOException {
-        Yaml yaml = new Yaml(new Constructor(ActuatorFlowList.class));
-//        String configPath = new File("").getCanonicalPath() + File.separator + path;
-//        InputStream inputStream = new FileInputStream(configPath);
-//        ActuatorFlowList actuatorFlowList = yaml.load(inputStream);
-//        actuatorFlowList.getFlow().stream().forEach(s -> flowMapConfig.put(s.getType(), s));
+        Yaml yaml = new Yaml(new Constructor(CombineInfo.class));
+        String configPath = new File("").getCanonicalPath() + File.separator + path;
+        InputStream inputStream = new FileInputStream(configPath);
+        CombineInfo combineInfo = yaml.load(inputStream);
+        combineInfo.getConfigs().stream().forEach(s -> combineConfigListHashMap.put(s.getType(), s));
     }
 
 }

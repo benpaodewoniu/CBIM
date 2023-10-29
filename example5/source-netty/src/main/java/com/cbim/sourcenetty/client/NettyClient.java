@@ -47,7 +47,7 @@ public class NettyClient {
                             // ClientConnect 主要用于处理连接、断开、异常等
                             ch.pipeline().addLast(new ClientConnect(netty));
                             // 编码器，详情请参考 README.md
-                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(100, 1, 2, 1, 3, true));
+                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(100, 0, 4, 0, 0, true));
                             // 存储数据，处理异常
                             ch.pipeline().addLast(new ClientHandler());
                         }
@@ -56,7 +56,6 @@ public class NettyClient {
             e.printStackTrace();
         }
     }
-
     public void connect() {
         System.out.println(Thread.currentThread());
         bootstrap.connect(nettyAddress.getHost(), nettyAddress.getPort()).addListener(new ChannelFutureListener() {

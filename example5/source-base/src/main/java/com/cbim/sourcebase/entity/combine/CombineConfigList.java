@@ -2,8 +2,10 @@ package com.cbim.sourcebase.entity.combine;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class CombineConfig {
+public class CombineConfigList {
     private String type;
-    private String tipZh;
+    private List<CombineConfig> content;
 }

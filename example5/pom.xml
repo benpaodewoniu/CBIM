@@ -28,6 +28,7 @@
     <properties>
 
         <netty-all.version>4.1.68.Final</netty-all.version>
+        <fastjson.version>1.2.80</fastjson.version>
 
         <flow.version>0.0.6-SNAPSHOT</flow.version>
         <flow-base.version>0.0.6-SNAPSHOT</flow-base.version>
@@ -40,6 +41,13 @@
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version> <!-- 使用最新版本 -->
+            </dependency>
+
 
             <dependency>
                 <groupId>com.cbim</groupId>
