@@ -7,10 +7,10 @@
 | example2  | netty的接收数据                           | 完成   |
 | example3  | 日志体系                                 | 完成   |
 | example4  | 框架数据流向                               | 完成   |
-| example5  | 动态协议解析                               | 未完成  |
-| example6  | 外部输出                                 | 未完成  |
-| example7  | 业务模块编写                               | 未完成  |
-| example8  | 数据库编写                                | 未完成  |
+| example5  | 动态协议解析                               | 完成   |
+| example6  | 业务模块编写                               | 未完成  |
+| example7  | 数据库编写                                | 未完成  |
+| example8  | 外部输出                                 | 未完成  |
 | example9  | web体系搭建                              | 未完成  |
 | example10 | 前后端protobuf数据传递(包括restful和websocket) | 未完成  |
 | example11 | 业务层的抽象                               | 未完成  |

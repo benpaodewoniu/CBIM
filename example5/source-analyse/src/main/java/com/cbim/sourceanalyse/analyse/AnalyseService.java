@@ -36,16 +36,19 @@ public class AnalyseService {
     }
 
     private void run() {
+        // 从 analyseConfig.yaml 中读的配置
         for (String key : analyseConfigListHashMap.keySet()) {
 
             Map<String, String> mapData = new HashMap<>();
 
+            // 获取该配置的偏移字节
             byte[] data = cutMapData.get(key);
             TransferInfo transferInfo = new TransferInfo();
 
             AnalyseConfigList analyseConfigList = analyseConfigListHashMap.get(key);
             List<AnalyseConfig> analyseConfigs = analyseConfigList.getContent();
 
+            // 将该配置中的配置按照 order 为 key 的 map 进行放置，用来解析循环
             Map<Integer, AnalyseConfig> analyseConfigMap = new HashMap<>();
             analyseConfigs.stream().forEach(s -> analyseConfigMap.put(s.getOrder(), s));
 
@@ -54,12 +57,14 @@ public class AnalyseService {
                 int loopValue = analyseConfig.getLoopValue();
                 boolean loopIf = analyseConfig.isLoopIf();
 
+                // 表明该字段不在循环中，可以直接解析
                 if (loopIf == false && loopValue == 0) {
                     String fieldName = analyseConfig.getFieldName();
                     String value = getContent(transferInfo, analyseConfig, data);
                     mapData.put(fieldName, value);
                 }
 
+                // 表明该字段是循环的开始字段
                 if (loopValue > 0) {
                     String loopFieldName = analyseConfig.getLoopFieldName();
                     String value = getContentList(transferInfo, analyseConfig, analyseConfigMap, data);
@@ -78,7 +83,6 @@ public class AnalyseService {
         int loopValue = analyseConfig.getLoopValue();
         int[] loopOrders = analyseConfig.getLoopOrders();
         List<AnalyseConfig> analyseConfigList = new ArrayList<>();
-        Map<String, String> mapData = new HashMap<>();
 
         /*
          * 统计循环中的 analyse 配置
@@ -107,6 +111,7 @@ public class AnalyseService {
                     mapDataSub.put(fieldName, value);
                 }
 
+                // 说明循环中有内置循环，进行递归处理
                 if (loopValueSub > 0) {
                     String loopFieldName = analyseConfigSub.getLoopFieldName();
                     String valueSub = getContentList(transferInfo, analyseConfigSub, analyseConfigMap, originContent);
@@ -155,6 +160,7 @@ public class AnalyseService {
 
         switch (hexString) {
             case 1:
+                // 输出 10 进制
                 StringBuilder stringBuilder = new StringBuilder();
                 for (byte b : content) {
                     // 转化为 16 进制字符
@@ -164,12 +170,13 @@ public class AnalyseService {
 
                     stringBuilder.append((decimal));
                 }
-
-                // 删除前面的 0
+                // 删除前面的 0，比如 00117 变成 117
                 return stringBuilder.toString().replaceFirst("^0+(?!$)", "");
             case 2:
+                // 输出 16 进制
                 return Util.bytesToHexString(content);
             case 3:
+                // 输出 UTF-8 字符串
                 return new String(content, StandardCharsets.UTF_8).trim();
             default:
                 return null;
