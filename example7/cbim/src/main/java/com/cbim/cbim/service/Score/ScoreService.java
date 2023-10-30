@@ -1,7 +1,7 @@
 package com.cbim.cbim.service.Score;
 
 import com.alibaba.fastjson.JSON;
-import com.cbim.cbim.entity.score.ScoreEntity;
+import com.cbim.cbim.entity.input.score.ScoreInputEntity;
 import com.cbim.flowbase.interfaces.EventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ public class ScoreService implements EventService {
 
     @Override
     public void update(String data) throws Exception {
-        ScoreEntity scoreEntity = JSON.parseObject(data, ScoreEntity.class);
-        logger.info(scoreEntity.toString());
+        ScoreInputEntity scoreInputEntity = JSON.parseObject(data, ScoreInputEntity.class);
+        logger.info(scoreInputEntity.toString());
     }
 }

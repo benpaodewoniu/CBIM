@@ -6,10 +6,12 @@ tcp:
 logging:
   config: classpath:logback-spring.xml
 
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/your_database
-#    username: your_username
-#    password: your_password
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cbim
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
+mybatis:
+  mapper-locations: classpath*:mapper/*:xml

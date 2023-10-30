@@ -1,0 +1,14 @@
+<mapper namespace="com.mybatis.test.mapper.UserMapper">
+    <resultMap type="com.cbim.cbim.entity.Model.score.ScoreModelEntity" id="ScoreModelEntity">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="chinese" column="chinese"/>
+        <result property="math" column="math"/>
+        <result property="english" column="english"/>
+    </resultMap>
+
+    <select id="getUser" resultType="com.fate.backstage.entity.user.UserEntity">
+        select * from account where
+        email = #{email}
+    </select>
+</mapper>
