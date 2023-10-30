@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.17-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>org.cbim</groupId>
+    <artifactId>example7</artifactId>
+    <version>7.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>flow</module>
+        <module>cbim</module>
+        <module>flow-base</module>
+        <module>source-base</module>
+        <module>source-tool</module>
+        <module>source-netty</module>
+        <module>source-analyse</module>
+    </modules>
+
+    <properties>
+
+        <netty-all.version>4.1.68.Final</netty-all.version>
+        <fastjson.version>1.2.80</fastjson.version>
+
+        <flow.version>0.0.8-SNAPSHOT</flow.version>
+        <flow-base.version>0.0.8-SNAPSHOT</flow-base.version>
+        <source-base.version>0.0.8-SNAPSHOT</source-base.version>
+        <source-tool.version>0.0.8-SNAPSHOT</source-tool.version>
+        <source-netty.version>0.0.8-SNAPSHOT</source-netty.version>
+        <source-analyse.version>0.0.8-SNAPSHOT</source-analyse.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version> <!-- 使用最新版本 -->
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-analyse</artifactId>
+                <version>${source-analyse.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version> <!-- 使用最新版本 -->
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>flow</artifactId>
+                <version>${flow.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>flow-base</artifactId>
+                <version>${flow-base.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-base</artifactId>
+                <version>${source-base.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-tool</artifactId>
+                <version>${source-tool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>source-netty</artifactId>
+                <version>${source-netty.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
+</project>
