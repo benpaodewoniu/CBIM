@@ -9,7 +9,7 @@ public class Util {
         StringBuilder hexString = new StringBuilder();
         for (byte b : bytes) {
             // 使用两个字符的十六进制表示，并用空格分隔
-            hexString.append(String.format("%02X ", b));
+            hexString.append(String.format("%02X", b));
         }
         return hexString.toString().trim();
     }

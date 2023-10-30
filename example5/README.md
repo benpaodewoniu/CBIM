@@ -120,3 +120,5 @@
 ```
 [main] INFO  com.cbim.flow.factory.CombineFactory - {name:小明},{scoreList:[{score:121359}, {score:121358}, {score:121360}, {score:121358}, {score:117}]}
 ```
+
+其实上面的数据输出错误，该错误，我在 example6 中改正了。

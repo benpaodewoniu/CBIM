@@ -161,17 +161,10 @@ public class AnalyseService {
         switch (hexString) {
             case 1:
                 // 输出 10 进制
-                StringBuilder stringBuilder = new StringBuilder();
-                for (byte b : content) {
-                    // 转化为 16 进制字符
-                    String hex = String.format("%02X", b);
-                    // 16 进制字符串转为为 10 进制数字
-                    int decimal = Integer.parseInt(hex, 16);
-
-                    stringBuilder.append((decimal));
-                }
+                // 输出 10 进制
+                int decimal = Integer.parseInt(Util.bytesToHexString(content), 16);
                 // 删除前面的 0，比如 00117 变成 117
-                return stringBuilder.toString().replaceFirst("^0+(?!$)", "");
+                return String.valueOf(decimal).replaceFirst("^0+(?!$)", "");
             case 2:
                 // 输出 16 进制
                 return Util.bytesToHexString(content);

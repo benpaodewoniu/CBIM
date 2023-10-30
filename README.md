@@ -8,7 +8,7 @@
 | example3  | 日志体系                                 | 完成   |
 | example4  | 框架数据流向                               | 完成   |
 | example5  | 动态协议解析                               | 完成   |
-| example6  | 业务模块编写                               | 未完成  |
+| example6  | 业务模块编写                               | 完成   |
 | example7  | 数据库编写                                | 未完成  |
 | example8  | 外部输出                                 | 未完成  |
 | example9  | web体系搭建                              | 未完成  |
