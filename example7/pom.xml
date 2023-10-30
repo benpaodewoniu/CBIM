@@ -29,6 +29,8 @@
 
         <netty-all.version>4.1.68.Final</netty-all.version>
         <fastjson.version>1.2.80</fastjson.version>
+        <mybatis.version>2.2.0</mybatis.version>
+        <mysql-connect.version>8.0.27</mysql-connect.version>
 
         <flow.version>0.0.8-SNAPSHOT</flow.version>
         <flow-base.version>0.0.8-SNAPSHOT</flow-base.version>
@@ -41,6 +43,19 @@
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version> <!-- 根据您的需要选择版本 -->
+            </dependency>
+
+            <!-- MySQL JDBC Driver -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connect.version}</version> <!-- 根据您的需要选择版本 -->
+            </dependency>
 
             <dependency>
                 <groupId>com.alibaba</groupId>

@@ -16,21 +16,6 @@
 
 # 介绍
 
-如果评价责任链中最重要的核心，我认为是
+增加数据库模块。
 
-- `DataInit`
-- `EventInit`
-
-这两个服务，将业务和架构完全的隔离开。
-
-## DataInit
-
-初始化服务。业务层有很多独立的服务，在服务运行之前，需要一些数据，比如从数据库中读，从配置文件中读。
-
-`DataInit` 只运行一次，在运行的时候，就把业务层相关服务所需要的数据进行初始化。
-
-## EventInit
-
-事件注册模块。我们编写的模块，如果想要执行，必须在这个模块中注册。
-
-注册完成后，会在 `CallFactory` 模块自动调用相关的服务。
+- [mybatis](https://benpaodewoniu.github.io/categories/java/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/org-mybatis/mybatis/)
