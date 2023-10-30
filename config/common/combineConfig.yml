@@ -1,10 +1,10 @@
 configs:
 
-  - type: 11
+  - type: 1
     content:
       - { type: 1 ,tipZh: 个人信息 }
       - { type: 2 ,tipZh: 成绩 }
 
-  - type: 22
+  - type: 2
     content:
       - { type: 2 ,tipZh: 成绩 }

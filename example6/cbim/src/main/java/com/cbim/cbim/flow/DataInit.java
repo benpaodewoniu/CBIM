@@ -9,5 +9,13 @@ public class DataInit extends AbstractActuator {
 
     public void invoke(ActuatorEntity actuatorEntity) throws Exception{
 
-    };
+        scoreServiceInit();
+
+    }
+
+    public void scoreServiceInit(){
+        /*
+        * 初始化 ScoreService 所需的服务
+        * */
+    }
 }

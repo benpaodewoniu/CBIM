@@ -40,8 +40,6 @@ public class CombineFactory extends AbstractActuator {
 
         }
 
-        logger.info(combineDataHashMap.get("11"));
-
     }
 
 

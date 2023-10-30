@@ -1,7 +1,7 @@
 package com.cbim.cbim.service.Score;
 
 import com.cbim.cbim.entity.score.ScoreEntity;
-import com.cbim.flowbase.EventService;
+import com.cbim.flowbase.interfaces.EventService;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 
