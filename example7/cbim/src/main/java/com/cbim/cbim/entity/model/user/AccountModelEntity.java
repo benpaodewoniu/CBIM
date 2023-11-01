@@ -1,4 +1,4 @@
-package com.cbim.cbim.entity.Model.user;
+package com.cbim.cbim.entity.model.user;
 
 import lombok.Data;
 
