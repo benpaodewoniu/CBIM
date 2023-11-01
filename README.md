@@ -10,7 +10,7 @@
 | example5  | 动态协议解析                            | 完成   |
 | example6  | 业务模块编写                            | 完成   |
 | example7  | 数据库编写                             | 完成   |
-| example8  | web体系搭建                           | 未完成  |
+| example8  | web体系搭建                           | 完成   |
 | example9  | 前后端protobuf数据传递                   | 未完成  |
 | example10 | 前后端websocket通信                    | 未完成  |
 | example11 | 功能性插件(定时任务)                       | 未完成  |
