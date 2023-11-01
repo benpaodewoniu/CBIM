@@ -10,11 +10,11 @@
         <version>7.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.cbim</groupId>
-    <artifactId>cbim</artifactId>
+    <groupId>com.cbim2</groupId>
+    <artifactId>cbim2</artifactId>
     <version>0.0.8-SNAPSHOT</version>
-    <name>cbim</name>
-    <description>cbim</description>
+    <name>cbim2</name>
+    <description>cbim2</description>
 
     <properties>
         <java.version>17</java.version>

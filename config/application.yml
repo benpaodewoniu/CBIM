@@ -11,7 +11,7 @@ spring:
     url: jdbc:mysql://localhost:3306/cbim
     username: root
     password: 12345
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath*:mapper/*:xml

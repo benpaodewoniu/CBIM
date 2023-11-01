@@ -1,4 +1,4 @@
-package com.cbim.cbim.service.Score;
+package com.cbim.cbim.service.score;
 
 import com.alibaba.fastjson.JSON;
 import com.cbim.cbim.entity.input.score.ScoreInputEntity;

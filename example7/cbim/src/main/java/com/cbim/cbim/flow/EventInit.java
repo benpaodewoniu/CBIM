@@ -1,7 +1,7 @@
 package com.cbim.cbim.flow;
 
 import com.cbim.cbim.enums.ServiceEnums;
-import com.cbim.cbim.service.Score.ScoreService;
+import com.cbim.cbim.service.score.ScoreService;
 import com.cbim.cbim.service.user.UserService;
 import com.cbim.flowbase.actuator.AbstractActuator;
 import com.cbim.flowbase.entity.ActuatorEntity;
