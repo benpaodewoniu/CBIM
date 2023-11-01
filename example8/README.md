@@ -16,6 +16,18 @@
 
 # 介绍
 
-增加数据库模块。
+简单的构建 `Restful` 请求。
 
-- [mybatis](https://benpaodewoniu.github.io/categories/java/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/org-mybatis/mybatis/)
+在程序开始时，访问 `http://127.0.0.1:8080/user/info`
+
+返回
+
+```
+{"code":200,"message":"成功","data":[{"id":1,"name":"小明"}]}
+```
+
+使用网络调试助手发送数据后，再访问该页面，出现
+
+```
+{"code":200,"message":"成功","data":[{"id":1,"name":"小红"}]}
+```
