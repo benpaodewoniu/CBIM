@@ -7,8 +7,21 @@
         <result property="name" column="name"/>
     </resultMap>
 
+    <resultMap type="com.cbim.cbim.entity.model.history.HistoryModelEntity" id="HistoryModelEntity">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
     <select id="getAccount" resultMap="AccountModelEntity">
-        select * from account
+        select *
+        from account
     </select>
+
+    <insert id="batchInsertHistory" parameterType="java.util.List">
+        insert into history (name,time) values
+        <foreach collection="list" item="item" separator="," open="" close="">
+            (#{item.name},#{item.time})
+        </foreach>
+    </insert>
 
 </mapper>

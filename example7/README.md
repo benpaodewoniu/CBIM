@@ -19,3 +19,5 @@
 增加数据库模块。
 
 - [mybatis](https://benpaodewoniu.github.io/categories/java/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/org-mybatis/mybatis/)
+
+相关的 `sql` 文件在 `config` 中。
