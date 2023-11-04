@@ -11,7 +11,7 @@
 | example6  | 业务模块编写                            | 完成   |
 | example7  | 数据库编写                             | 完成   |
 | example8  | web体系搭建                           | 完成   |
-| example9  | 功能性插件(定时任务)                       | 未完成  |
+| example9  | 功能性插件(定时任务)                       | 完成   |
 | example10 | 前后端protobuf数据传递                   | 未完成  |
 | example11 | 外部输出                              | 未完成  |
 | example12 | 业务层的抽象                            | 未完成  |
