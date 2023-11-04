@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package com.cbim.cbim.proto;
+
+message MsgProto{
+  required ScoreProtoList scoreList = 1;
+}
+
+message ScoreProtoList{
+  repeated ScoreProto list = 1;
+}
+
+message ScoreProto{
+  required string name = 1;
+  required int32 chinese = 2;
+  required int32 math = 3;
+  required int32 english = 4;
+}

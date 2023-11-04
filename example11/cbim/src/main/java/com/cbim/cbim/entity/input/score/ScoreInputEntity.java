@@ -11,7 +11,3 @@ public class ScoreInputEntity {
     private List<Score> scoreList;
 }
 
-@Data
-class Score {
-    private int score;
-}

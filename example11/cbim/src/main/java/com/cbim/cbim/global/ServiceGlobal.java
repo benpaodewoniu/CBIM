@@ -1,6 +1,7 @@
 package com.cbim.cbim.global;
 
 import com.cbim.cbim.entity.model.history.HistoryModelEntity;
+import com.cbim.cbim.entity.model.score.ScoreInfoEntity;
 import com.cbim.cbim.entity.model.user.AccountModelEntity;
 
 import java.util.ArrayList;
@@ -11,5 +12,7 @@ public class ServiceGlobal {
 
     public static List<AccountModelEntity> accountModelGlobalEntityList = new ArrayList<>();
     public static ConcurrentLinkedDeque<HistoryModelEntity> historyModelEntityConcurrentLinkedDeque = new ConcurrentLinkedDeque<>();
+
+    public static List<ScoreInfoEntity> scoreInfoEntityList = new ArrayList<>();
 
 }
