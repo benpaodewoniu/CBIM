@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+
+<h1>按 F12，切换到 console 控制台，重新刷新该页面</h1>
+
+
+</body>
+</html>
+
+<script>
+
+    $.ajax({
+        url: 'http://127.0.0.1:8080/user/info',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (error) {
+            console.error('Request failed:', error);
+        }
+    });
+
+    $(function () {
+
+        var prefixUrl = 'ws://127.0.0.1:9889/websocket';
+
+        var ws;//WebSocket连接对象
+
+
+        $(function () {
+
+            //创建WebSocket连接对象
+            ws = new WebSocket(prefixUrl);
+
+            //连接成功建立的回调方法
+            ws.onopen = function (event) {
+                console.log('向后端发送请求，建立 websocket 连接')
+            }
+
+            //接收到消息的回调方法
+            ws.onmessage = function (event) {
+                console.log('接收到来自后端返回的内容：' + event.data)
+            }
+
+            //连接发生错误的回调方法
+            ws.onerror = function (event) {
+                console.log('发生错误')
+            }
+
+            //连接关闭的回调方法
+            ws.onclose = function (event) {
+                console.log('关闭连接')
+            }
+
+        })
+    })
+</script>

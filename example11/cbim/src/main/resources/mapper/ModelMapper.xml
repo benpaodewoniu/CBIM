@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cbim.cbim.mapper.ModelMapper">
+
+    <resultMap type="com.cbim.cbim.entity.model.user.AccountModelEntity" id="AccountModelEntity">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <resultMap type="com.cbim.cbim.entity.model.history.HistoryModelEntity" id="HistoryModelEntity">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="getAccount" resultMap="AccountModelEntity">
+        select *
+        from account
+    </select>
+
+    <insert id="batchInsertHistory" parameterType="java.util.List">
+        insert into history (name,time) values
+        <foreach collection="list" item="item" separator="," open="" close="">
+            (#{item.name},#{item.time})
+        </foreach>
+    </insert>
+
+</mapper>
