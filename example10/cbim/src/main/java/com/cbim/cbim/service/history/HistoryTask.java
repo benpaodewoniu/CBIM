@@ -34,7 +34,9 @@ public class HistoryTask implements Runnable {
         }
 
         try {
-
+            if (historyModelEntityList.isEmpty()) {
+                return;
+            }
             modelMapper.batchInsertHistory(historyModelEntityList);
         } catch (Exception e) {
             logger.info(e.toString());

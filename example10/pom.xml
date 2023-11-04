@@ -31,6 +31,7 @@
         <fastjson.version>1.2.80</fastjson.version>
         <mybatis.version>2.2.0</mybatis.version>
         <mysql-connect.version>8.0.27</mysql-connect.version>
+        <netty-websocket.version>0.8.0</netty-websocket.version>
 
         <flow.version>0.0.11-SNAPSHOT</flow.version>
         <flow-base.version>0.0.11-SNAPSHOT</flow-base.version>
@@ -43,6 +44,13 @@
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>org.yeauty</groupId>
+                <artifactId>netty-websocket-spring-boot-starter</artifactId>
+                <version>${netty-websocket.version}</version>
+
+            </dependency>
 
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
