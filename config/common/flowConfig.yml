@@ -1,17 +1,18 @@
 flow:
   - type: before
     chains:
-      - {beanName: beforeStart,subName: null,tipZh: 前置处理模块}
+      - { beanName: beforeStart,subName: null,tipZh: 前置处理模块 }
   - type: init
     chains:
-      - {beanName: clientFactory,subName: null,tipZh: 采集 netty 客户端}
-      - {beanName: configInit,subName: null,tipZh: 配置初始化模块}
-      - {beanName: dataInit,subName: null,tipZh: 数据初始化模块}
-      - {beanName: eventInit,subName: null,tipZh: 事件驱动模块初始化}
-      - {beanName: timerInit,subName: null,tipZh: 定时模块初始化}
+      - { beanName: clientFactory,subName: null,tipZh: 采集 netty 客户端 }
+      - { beanName: configInit,subName: null,tipZh: 配置初始化模块 }
+      - { beanName: dataInit,subName: null,tipZh: 数据初始化模块 }
+      - { beanName: eventInit,subName: null,tipZh: 事件驱动模块初始化 }
+      - { beanName: timerInit,subName: null,tipZh: 定时模块初始化 }
   - type: sub
     chains:
-      - {beanName: cutFactory,subName: null,tipZh: 切包模块}
-      - {beanName: analyseFactory,subName: null,tipZh: 解析模块}
-      - {beanName: combineFactory,subName: null,tipZh: 组包模块}
-      - {beanName: callEventFactory,subName: null,tipZh: 回调事件模块}
+      - { beanName: cutFactory,subName: null,tipZh: 切包模块 }
+      - { beanName: analyseFactory,subName: null,tipZh: 解析模块 }
+      - { beanName: combineFactory,subName: null,tipZh: 组包模块 }
+      - { beanName: callEventFactory,subName: null,tipZh: 回调事件模块 }
+      - { beanName: endHandler,subName: null,tipZh: 末尾处理 }
