@@ -13,7 +13,13 @@
 | source-tool    | 工具包<br/> - 本次主要实现从 IOC 中拿 bean 对象              |
 | souce-netty    | 使用 netty 做的采集包                                 |
 | source-analyse | 动态协议中的解析模块                                     |
+| cbim-websocket | websocket 包                                    |
+
+# 功能点
+
+- 跨域增加
+- `websocket` 连接增加
 
 # 介绍
 
-功能性插件，批量插入 `SQL`
+增加 `index.html` ，可以展示上述功能。

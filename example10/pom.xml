@@ -23,6 +23,7 @@
         <module>source-tool</module>
         <module>source-netty</module>
         <module>source-analyse</module>
+        <module>cbimwebsocket</module>
     </modules>
 
     <properties>
@@ -39,6 +40,7 @@
         <source-tool.version>0.0.11-SNAPSHOT</source-tool.version>
         <source-netty.version>0.0.11-SNAPSHOT</source-netty.version>
         <source-analyse.version>0.0.11-SNAPSHOT</source-analyse.version>
+        <cbim-websocket.version>0.0.11-SNAPSHOT</cbim-websocket.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +114,12 @@
                 <groupId>com.cbim</groupId>
                 <artifactId>source-netty</artifactId>
                 <version>${source-netty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.cbim</groupId>
+                <artifactId>cbim-websocket</artifactId>
+                <version>${cbim-websocket.version}</version>
             </dependency>
 
         </dependencies>

@@ -60,16 +60,12 @@
         </dependency>
 
         <dependency>
-            <groupId>org.yeauty</groupId>
-            <artifactId>netty-websocket-spring-boot-starter</artifactId>
+            <groupId>com.cbim</groupId>
+            <artifactId>cbim-websocket</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.yeauty</groupId>
-            <artifactId>netty-websocket-spring-boot-starter</artifactId>
-            <version>0.8.0</version>
-        </dependency>
-    </dependencies>
 
+
+    </dependencies>
 
 
     <build>
